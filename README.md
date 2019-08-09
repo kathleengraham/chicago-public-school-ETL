@@ -1,5 +1,8 @@
-# <h1 align='center'>Extract, Transform, Load: Chicago Public School Data</h1>
-## <h1 align='center'>Contributors: Kathleen Graham, Mohammed Sajid Khan, Tamara Najjar</h1>
+# <h1 align='center'> Extract, Transform, Load: Chicago Public School Data</h1>
+
+### Contributors
+
+Kathleen Graham, Mohammed Sajid Khan, Tamara Najjar
 
 
 ### SEARCH
@@ -9,6 +12,7 @@ First, we searched data.gov for data sets around Chicago Public Schools:
 * [School Profiles](https://catalog.data.gov/dataset/chicago-public-schools-school-profile-information-sy1718)
 * [School Progress Reports](https://catalog.data.gov/dataset/chicago-public-schools-school-progress-reports-sy1718)
 * [School Locations](https://catalog.data.gov/dataset/chicago-public-schools-school-locations-sy1819)
+
 We also included a data set around fast food restaurants to map using zip codes.
 * [Fast Food Restaurants](https://data.world/datafiniti/fast-food-restaurants-across-america)
 
@@ -166,17 +170,28 @@ mapped_fastfood.head(3)
 ### LOAD
 
 
+Using PostgreSQL in pdAdmin, we created tables to match the data frames we finished transforming. We had a few hiccups with foreign key restraints, so we trimmed it down to using school_id as the primary key and having only two foreign keys map to this.
+
 #### Database Creation
 
-1. Created 'chicago_public_school' database using PostgreSQL in pgAdmin
+1. Created 'chicago_public_school' database
 2. In a query tool, created four tables to match transformed data frames
-![create-school-profiles-table-postgresql]()
-![create-school-reports-table-postgresql]()
-![create-school-locations-table-postgresql]()
-![create-fast-food-table-postgresql]()
+
+![create-school-profiles-table-postgresql](school-profiles-table.png)
+
+
+![create-school-reports-table-postgresql](school-reports-table.png)
+
+
+![create-school-locations-table-postgresql](school-locations-table.png)
+
+
+![create-fast-food-table-postgresql](fast-food-table.png)
 
 
 #### Database Connection
+
+Going back to our Jupyter Notebook, we set up a connection to our database.
 
 ```python
 # set up a database connection
@@ -193,22 +208,38 @@ engine.table_names()
 
 #### Load Dataframes into Database
 
+From Jupyter Notebook, we were able to write our data frames to our relational database (PostgreSQL) using pandas .to_sql and SQLAlchemy's engine. 
+
 ```python
 # load school profiles
 mapped_profiles.to_sql(name='school_profiles', con=engine, if_exists='append', index=True)
+```
+
+![school-profiles-query-success](school-profiles-query-success.png)
 
 
+```python
 # load school reports
 mapped_reports.to_sql(name='school_reports', con=engine, if_exists='append')
+```
+
+![school-reports-query-success](school-reports-query-success.png)
 
 
+```python
 # load school locations
 mapped_locations.to_sql(name='school_locations', con=engine, if_exists='append')
+```
+
+![school-locations-query-success](school-locations-query-success.png)
 
 
+```python
 # load fast food
 mapped_fastfood.to_sql(name='fast_food', con=engine, if_exists='append')
 ```
+
+![fast-food-query-success](fast-food-query-success.png)
 
 
 
