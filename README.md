@@ -177,16 +177,16 @@ Using PostgreSQL in pdAdmin, we created tables to match the data frames we finis
 1. Created 'chicago_public_school' database
 2. In a query tool, created four tables to match transformed data frames
 
-![create-school-profiles-table-postgresql](school-profiles-table.png)
+![create-school-profiles-table-postgresql](images/school-profiles-table.png)
 
 
-![create-school-reports-table-postgresql](school-reports-table.png)
+![create-school-reports-table-postgresql](images/school-reports-table.png)
 
 
-![create-school-locations-table-postgresql](school-locations-table.png)
+![create-school-locations-table-postgresql](images/school-locations-table.png)
 
 
-![create-fast-food-table-postgresql](fast-food-table.png)
+![create-fast-food-table-postgresql](images/fast-food-table.png)
 
 
 #### Database Connection
@@ -215,7 +215,7 @@ From Jupyter Notebook, we were able to write our data frames to our relational d
 mapped_profiles.to_sql(name='school_profiles', con=engine, if_exists='append', index=True)
 ```
 
-![school-profiles-query-success](school-profiles-query-success.png)
+![school-profiles-query-success](images/school-profiles-query-success.png)
 
 
 ```python
@@ -223,7 +223,7 @@ mapped_profiles.to_sql(name='school_profiles', con=engine, if_exists='append', i
 mapped_reports.to_sql(name='school_reports', con=engine, if_exists='append')
 ```
 
-![school-reports-query-success](school-reports-query-success.png)
+![school-reports-query-success](images/school-reports-query-success.png)
 
 
 ```python
@@ -231,7 +231,7 @@ mapped_reports.to_sql(name='school_reports', con=engine, if_exists='append')
 mapped_locations.to_sql(name='school_locations', con=engine, if_exists='append')
 ```
 
-![school-locations-query-success](school-locations-query-success.png)
+![school-locations-query-success](images/school-locations-query-success.png)
 
 
 ```python
@@ -239,7 +239,7 @@ mapped_locations.to_sql(name='school_locations', con=engine, if_exists='append')
 mapped_fastfood.to_sql(name='fast_food', con=engine, if_exists='append')
 ```
 
-![fast-food-query-success](fast-food-query-success.png)
+![fast-food-query-success](images/fast-food-query-success.png)
 
 
 
