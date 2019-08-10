@@ -40,6 +40,7 @@ school_profiles_file = "data/cps-school-profile-info-17-18.csv"
 school_profiles_df = pd.read_csv(school_profiles_file)
 school_profiles_df.head(3)
 ```
+![table1](images/table1.png)
 
 
 ```python
@@ -47,6 +48,7 @@ school_profiles_df.head(3)
 profiles_df = school_profiles_df[['School_ID', 'Finance_ID', 'Short_Name', 'Long_Name', 'Zip Codes', 'Wards']]
 profiles_df.head(3)
 ```
+![table1-1](images/table1-1.png)
 
 
 ```python
@@ -63,6 +65,7 @@ profiles_mapping = {
 mapped_profiles = profiles_df.rename(columns=profiles_mapping)
 mapped_profiles.head(3)
 ```
+![table1-2](images/table1-2.png)
 
 
 #### School Reports Information (2017-2018)
@@ -73,6 +76,7 @@ school_reports_file = "data/cps-school-progress-reports-17-18.csv"
 school_reports_df = pd.read_csv(school_reports_file)
 school_reports_df.head(3)
 ```
+![table2](images/table2.png)
 
 
 ```python
@@ -80,6 +84,7 @@ school_reports_df.head(3)
 reports_df = school_reports_df[['School_ID', 'Short_Name', 'Supportive_School_Award']]
 reports_df.head(3)
 ```
+![table2-1](images/table2-1.png)
 
 
 ```python
@@ -93,6 +98,7 @@ reports_mapping = {
 mapped_reports = reports_df.rename(columns=reports_mapping)
 mapped_reports.head(3)
 ```
+![table2-2](images/table2-2.png)
 
 
 #### School Locations (2017-2018)
@@ -103,6 +109,7 @@ school_locations_file = "data/cps-school-locations-17-18.csv"
 school_locations_df = pd.read_csv(school_locations_file)
 school_locations_df.head(3)
 ```
+![table3](images/table3.png)
 
 
 ```python
@@ -110,6 +117,7 @@ school_locations_df.head(3)
 locations_df = school_locations_df[['School_ID', 'Network', 'Short_Name', 'Address', 'Zip', 'Grades', 'COMMAREA', 'WARD_15', 'ALD_15']]
 locations_df.head(3)
 ```
+![table3-1](images/table3-1.png)
 
 
 ```python
@@ -129,6 +137,7 @@ locations_mapping = {
 mapped_locations = locations_df.rename(columns=locations_mapping)
 mapped_locations.head(3)
 ```
+![table3-2](images/table3-2.png)
 
 
 #### Fast Food Restaurants in Chicago by Zip Code
@@ -140,6 +149,7 @@ fast_food_file = "data/fast-food.csv"
 fast_food_df = pd.io.parsers.read_csv(fast_food_file,encoding = 'unicode_escape',dtype={'postalCode': 'str'})
 fast_food_df.head(3)
 ```
+![table4](images/table4.png)
 
 
 ```python
@@ -153,6 +163,7 @@ fast_food = fast_food.drop_duplicates('id')
 fastfood = fast_food[['name', 'postalCode', 'province']]
 fastfood.head(3)
 ```
+![table4-1](images/table4-1.png)
 
 
 ```python
@@ -165,6 +176,7 @@ fastfood_mapping = {
 mapped_fastfood = fastfood.rename(columns=fastfood_mapping)
 mapped_fastfood.head(3)
 ```
+![table4-2](images/table4-2.png)
 
 
 ### LOAD
@@ -204,6 +216,7 @@ engine = create_engine(f'postgresql://{rds_connection_string}')
 # confirm tables
 engine.table_names()
 ```
+![confirm-tables](images/confirm-tables.png)
 
 
 #### Load Dataframes into Database
