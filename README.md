@@ -20,7 +20,7 @@ We also included a data set around fast food restaurants to map using zip codes.
 ### EXTRACT / TRANSFORM
 
 
-Using Jupyter Notebook, we read our files using pandas and stored in data frames. Then we cleaned and renamed columns to be ready for loading into the database. The steps to set up, extract, and transform are as follows: 
+Using Jupyter Notebook, we read our files using pandas and stored in dataframes. Then we cleaned and renamed columns to be ready for loading into the database. The steps to set up, extract, and transform are as follows: 
 
 
 #### Set Up
@@ -44,7 +44,7 @@ school_profiles_df.head(3)
 
 
 ```python
-# transform school profiles data frame
+# transform school profiles dataframe
 profiles_df = school_profiles_df[['School_ID', 'Finance_ID', 'Short_Name', 'Long_Name', 'Zip Codes', 'Wards']]
 profiles_df.head(3)
 ```
@@ -52,7 +52,7 @@ profiles_df.head(3)
 
 
 ```python
-# renamed columns of school profile data frame
+# renamed columns of school profile dataframe
 profiles_mapping = {
     'School_ID': 'school_id',
     'Finance_ID': 'finance_id',
